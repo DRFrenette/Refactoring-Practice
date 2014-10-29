@@ -5,7 +5,7 @@ class Deck
     @suits = %w(Spades Hearts Diamonds Clubs)
   end
 
-  def deal
+  def deal_to_players
     @suits.each do |suit|
       @ranks.each do |rank|
         @deck << rank + " of " + suit
@@ -16,8 +16,13 @@ class Deck
   def shuffle
     @deck.shuffle
   end
+
+  def get_cards_from_deck
+    @deck.shift(5)
+  end
 end
 
 deck = Deck.new
-deck.deal
+deck.deal_to_players
+# puts deck.shuffle
 puts deck.shuffle

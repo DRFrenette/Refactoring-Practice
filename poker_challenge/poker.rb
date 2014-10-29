@@ -4,14 +4,20 @@
 #   cards.count must always equal 5
 #create ? methods for every set of cards. This means researching a lot of other
 #methods
-require "./poker_deck"
+require "./deck.rb"
 
 ACE_LOW = 1
 ACE_HIGH = 14
+NUMBER_OF_PLAYERS = 5
 
 
 class Hand
   attr_reader :cards
+
+  def initialize
+    @deck = Deck.new
+    @players = []
+  end
 
 RANKS = {
   straight_flush:  8,
@@ -24,11 +30,6 @@ RANKS = {
   high_card:       1
 }.freeze
 
-
-def initialize(cards)
-  cards.count == 5
-  @cards = cards.freeze
-end
 
 def rank
   RANKS.detect { |method, rank| send :"#{method}?"} || [:high_card, 0]

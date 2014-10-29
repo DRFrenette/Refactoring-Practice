@@ -9,7 +9,8 @@ class RPS_Game
 
   def initialize
     @choices = %w(rock paper scissors)
-    @victor
+    @user_wins = 0
+    @computer_wins = 0
   end
 
   def play
@@ -35,6 +36,14 @@ class RPS_Game
       puts "You lose! HAHA!"
     else 
       puts "You tied"
+    end
+  end
+
+  def score_count
+    if user_won?
+      @user_wins += 1
+    elsif computer_won?
+      @computer_wins += 1
     end
   end
 
