@@ -1,2 +1,2 @@
-#Created in metis, a cool poker game
+#Created in metis; a cool poker game
 
